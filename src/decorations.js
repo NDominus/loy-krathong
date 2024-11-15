@@ -12,11 +12,14 @@ function toggleDecoration(event){
     boat.src = chooseRandomDecoration();
 
     var rect = boat.getBoundingClientRect();
-    var x = event.clientX;
-    var y = event.clientY;
+
+
+    var x = event.clientX - rect.width/2;
+    var y = event.clientY - rect.height/2;
 
     boat.style.left = x + "px";
     boat.style.top = y + "px";
+
 
 
     startDecoration(x, y);
@@ -56,6 +59,23 @@ function updatePos(){
   var new_left = rect.left + deco_dx;
   var new_top =  rect.top  + deco_dy;
 
+  if (new_left + rect.width < 0){ // exited left
+    stopDecoration();
+    return;
+  }
+  if (new_left > window.innerWidth) { // exited right
+    stopDecoration();
+    return;
+  }
+  if (new_top + rect.height < 0) { // exited top
+    stopDecoration();
+    return;
+  }
+  if (new_top > window.innerHeight) { // exited bottom
+    stopDecoration();
+    return;
+  }
+
   document.getElementById("boat").style.left = new_left + "px";
   document.getElementById("boat").style.top = new_top + "px";
   document.getElementById("boat").style.transform = deco_dx < 0 ? "scaleX(-1)" : "";
@@ -65,7 +85,7 @@ function updatePos(){
 
 function setRandomDisplacements(){
   var r_dx = Math.random() * 2 - 1; //
-  var r_dy = -Math.random(); // go always up
+  var r_dy = Math.random() * 2 - 1; //
   var r_wait = Math.random(); //
   var r_move = Math.random(); //
 
