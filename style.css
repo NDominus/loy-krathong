@@ -1,8 +1,9 @@
 body {
-    background-image: url("assets/flow.webp");
-    background-position: center;
+    background-image: url("assets/flow.webp"); no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    overflow: hidden;
 }
 .BoxWidget {
     position: absolute;
@@ -11,8 +12,8 @@ body {
     transform: translateX(-50%) translateY(-50%);
     background-color: #0F52BA;
     opacity: 0.8;
-    width: 600px;
-    height: 120px;
+    width: 650px;
+    height: 250px;
     z-index: 1000;
 }
 .textWidget {

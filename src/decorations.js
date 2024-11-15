@@ -36,6 +36,10 @@ function startDecoration(x,y) {
   setTimeout(setRandomDisplacements, 0);
   // setTimeout(stopDecoration, 5000);
   updatePos();
+
+  document.getElementById("TextWidget").innerText = "Happy Loy Krathong!";
+  document.getElementById("TextWidget").textContent = "Happy Loy Krathong!";
+
 }
 
 function stopDecoration() {
@@ -51,6 +55,11 @@ function stopDecoration() {
   deco_dx = 0; //
   deco_dy = 0; //
   deco_change_wait = 0;
+
+  document.getElementById("TextWidget").innerText = "Tap somewhere...";
+  document.getElementById("TextWidget").textContent = "Tap somewhere...";
+
+
 }
 
 function updatePos(){
@@ -96,13 +105,3 @@ function setRandomDisplacements(){
 function chooseRandomDecoration(){
   return boats[Math.floor(Math.random() * boats.length)];
 }
-
-function printMousePos(event) {
-
-
-}
-
-// document.addEventListener("click", printMousePos);
-
-
-// toggleDecoration();
